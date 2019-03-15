@@ -15,7 +15,7 @@ const defaultOptions = {
             doubleClick: true,
             pinch: true
         },
-        callback: function(multiplier) { }
+        callback: function(multiplier) {}
     },
     pan: {
         factor: 100,
@@ -24,7 +24,7 @@ const defaultOptions = {
             dragMouseButton: 1,
             dragCursor: "move"
         },
-        callback: function(coordinates) { }
+        callback: function(coordinates) {}
     }
 };
 
@@ -100,7 +100,10 @@ const getViewBoxCoordinatesFromEvent = function(svgRoot, e) {
         }
     }
 
-    const position = { x: e.clientX, y: e.clientY };
+    const position = {
+        x: e.clientX,
+        y: e.clientY
+    };
     return coordinateTransform(svgRoot, position);
 };
 
@@ -440,6 +443,7 @@ class SVGPanZoom {
     }
 
     setCenter(x, y, animationTime, callback) {
+        var viewBox = this.getViewBox();
         return this.setViewBox(x - viewBox.width / 2, y - viewBox.height / 2, viewBox.width, viewBox.height, animationTime, callback);
     }
 
@@ -556,12 +560,30 @@ class SVGPanZoom {
                         return;
                     }
 
-                    domBody.removeEventListener("mousemove", mouseMoveCallback, { passive: false, capture: true });
-                    domBody.removeEventListener("touchmove", mouseMoveCallback, { passive: false, capture: true });
-                    domBody.removeEventListener("mouseup", mouseUpCallback, { passive: false, capture: true });
-                    domBody.removeEventListener("touchend", mouseUpCallback, { passive: false, capture: true });
-                    domBody.removeEventListener("touchcancel", mouseUpCallback, { passive: false, capture: true });
-                    domBody.removeEventListener("mouseout", mouseUpCallback, { passive: false, capture: true });
+                    domBody.removeEventListener("mousemove", mouseMoveCallback, {
+                        passive: false,
+                        capture: true
+                    });
+                    domBody.removeEventListener("touchmove", mouseMoveCallback, {
+                        passive: false,
+                        capture: true
+                    });
+                    domBody.removeEventListener("mouseup", mouseUpCallback, {
+                        passive: false,
+                        capture: true
+                    });
+                    domBody.removeEventListener("touchend", mouseUpCallback, {
+                        passive: false,
+                        capture: true
+                    });
+                    domBody.removeEventListener("touchcancel", mouseUpCallback, {
+                        passive: false,
+                        capture: true
+                    });
+                    domBody.removeEventListener("mouseout", mouseUpCallback, {
+                        passive: false,
+                        capture: true
+                    });
 
                     if (this.options.pan.events.dragCursor !== null) {
                         this.options.eventMagnet.style.cursor = oldCursor;
@@ -572,12 +594,30 @@ class SVGPanZoom {
                     pinchDistance = 0;
                 };
 
-                domBody.addEventListener("mousemove", mouseMoveCallback, { passive: false, capture: true });
-                domBody.addEventListener("touchmove", mouseMoveCallback, { passive: false, capture: true });
-                domBody.addEventListener("mouseup", mouseUpCallback, { passive: false, capture: true });
-                domBody.addEventListener("touchend", mouseUpCallback, { passive: false, capture: true });
-                domBody.addEventListener("touchcancel", mouseUpCallback, { passive: false, capture: true });
-                domBody.addEventListener("mouseout", mouseUpCallback, { passive: false, capture: true });
+                domBody.addEventListener("mousemove", mouseMoveCallback, {
+                    passive: false,
+                    capture: true
+                });
+                domBody.addEventListener("touchmove", mouseMoveCallback, {
+                    passive: false,
+                    capture: true
+                });
+                domBody.addEventListener("mouseup", mouseUpCallback, {
+                    passive: false,
+                    capture: true
+                });
+                domBody.addEventListener("touchend", mouseUpCallback, {
+                    passive: false,
+                    capture: true
+                });
+                domBody.addEventListener("touchcancel", mouseUpCallback, {
+                    passive: false,
+                    capture: true
+                });
+                domBody.addEventListener("mouseout", mouseUpCallback, {
+                    passive: false,
+                    capture: true
+                });
             }
         }
 
@@ -589,20 +629,36 @@ class SVGPanZoom {
         this.options.eventMagnet.addEventListener("wheel", handlers.mousewheel);
 
         this.options.eventMagnet.addEventListener("dblclick", handlers.dblclick);
-        this.options.eventMagnet.addEventListener("click", handlers.click, { capture: true });
+        this.options.eventMagnet.addEventListener("click", handlers.click, {
+            capture: true
+        });
 
-        this.options.eventMagnet.addEventListener("mousedown", handlers.pinchAndDrag, { passive: false, capture: true });
-        this.options.eventMagnet.addEventListener("touchstart", handlers.pinchAndDrag, { passive: false, capture: true });
+        this.options.eventMagnet.addEventListener("mousedown", handlers.pinchAndDrag, {
+            passive: false,
+            capture: true
+        });
+        this.options.eventMagnet.addEventListener("touchstart", handlers.pinchAndDrag, {
+            passive: false,
+            capture: true
+        });
 
         this.destroy = function() {
             this.options.eventMagnet.removeEventListener("DOMMouseScroll", handlers.mousewheel);
             this.options.eventMagnet.removeEventListener("wheel", handlers.mousewheel);
 
             this.options.eventMagnet.removeEventListener("dblclick", handlers.dblclick);
-            this.options.eventMagnet.removeEventListener("click", handlers.click, { capture: true });
+            this.options.eventMagnet.removeEventListener("click", handlers.click, {
+                capture: true
+            });
 
-            this.options.eventMagnet.removeEventListener("mousedown", handlers.pinchAndDrag, { passive: false, capture: true });
-            this.options.eventMagnet.removeEventListener("touchstart", handlers.pinchAndDrag, { passive: false, capture: true });
+            this.options.eventMagnet.removeEventListener("mousedown", handlers.pinchAndDrag, {
+                passive: false,
+                capture: true
+            });
+            this.options.eventMagnet.removeEventListener("touchstart", handlers.pinchAndDrag, {
+                passive: false,
+                capture: true
+            });
         };
     }
 }
