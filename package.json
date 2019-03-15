@@ -1,49 +1,49 @@
 {
-  "name": "@avcs/svgpanzoom",
-  "version": "2.0.5",
-  "description": "A Javascript plugin to pan and zoom SVG images either programatically or through mouse/touch events",
-  "main": "lib/SVGPanZoom.js",
-  "repository": "git@github.com:avcs06/SVGPanZoom.git",
-  "scripts": {
-    "clean": "rimraf lib dist es",
-    "build": "npm run clean && npm run build:commonjs && npm run build:umd && npm run build:umd:docs && npm run build:umd:min && npm run build:es",
-    "build:watch": "echo 'build && watch the COMMONJS version of the package - for other version, run specific tasks' && npm run build:commonjs:watch",
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:commonjs:watch": "npm run build:commonjs -- --watch",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:es:watch": "npm run build:es -- --watch",
-    "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development node_modules/.bin/rollup src/SVGPanZoom.js --config --sourcemap --output dist/SVGPanZoom.js",
-    "build:umd:docs": "cross-env BABEL_ENV=es NODE_ENV=development node_modules/.bin/rollup src/SVGPanZoom.js --config --sourcemap --output docs/SVGPanZoom.js",
-    "build:umd:watch": "npm run build:umd -- --watch",
-    "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup src/SVGPanZoom.js --config --output dist/SVGPanZoom.min.js"
-  },
-  "keywords": [
-    "jquery",
-    "svg",
-    "pan",
-    "zoom",
-    "touch",
-    "pinch",
-    "wheel"
-  ],
-  "author": "AvcS",
-  "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^7.2.3",
-    "babel-preset-env": "^1.5.2",
-    "cross-env": "^5.0.1",
-    "eslint": "^4.1.1",
-    "rimraf": "^2.6.1",
-    "rollup": "^0.43.0",
-    "rollup-plugin-babel": "^2.7.1",
-    "rollup-plugin-commonjs": "^8.0.2",
-    "rollup-plugin-node-resolve": "^3.0.0",
-    "rollup-plugin-uglify": "^2.0.1",
-    "rollup-watch": "^4.0.0"
-  },
-  "dependencies": {
-    "extend": "^3.0.2"
-  }
+    "name": "zegnoo/svgpanzoom",
+    "version": "1.0.0",
+    "description": "A Javascript plugin to pan and zoom SVG images either programatically or through mouse/touch events",
+    "main": "lib/SVGPanZoom.js",
+    "repository": "git@github.com:zegnoo/SVGPanZoom.git",
+    "scripts": {
+        "clean": "rimraf lib dist es",
+        "build": "npm run clean && npm run build:commonjs && npm run build:umd && npm run build:umd:docs && npm run build:umd:min && npm run build:es",
+        "build:watch": "echo 'build && watch the COMMONJS version of the package - for other version, run specific tasks' && npm run build:commonjs:watch",
+        "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+        "build:commonjs:watch": "npm run build:commonjs -- --watch",
+        "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+        "build:es:watch": "npm run build:es -- --watch",
+        "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development node_modules/.bin/rollup src/SVGPanZoom.js --config --sourcemap --output dist/SVGPanZoom.js",
+        "build:umd:docs": "cross-env BABEL_ENV=es NODE_ENV=development node_modules/.bin/rollup src/SVGPanZoom.js --config --sourcemap --output docs/SVGPanZoom.js",
+        "build:umd:watch": "npm run build:umd -- --watch",
+        "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup src/SVGPanZoom.js --config --output dist/SVGPanZoom.min.js"
+    },
+    "keywords": [
+        "jquery",
+        "svg",
+        "pan",
+        "zoom",
+        "touch",
+        "pinch",
+        "wheel"
+    ],
+    "author": "AvcS",
+    "license": "MIT",
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-preset-env": "^1.5.2",
+        "cross-env": "^5.0.1",
+        "eslint": "^4.1.1",
+        "rimraf": "^2.6.1",
+        "rollup": "^0.43.0",
+        "rollup-plugin-babel": "^2.7.1",
+        "rollup-plugin-commonjs": "^8.0.2",
+        "rollup-plugin-node-resolve": "^3.0.0",
+        "rollup-plugin-uglify": "^2.0.1",
+        "rollup-watch": "^4.0.0"
+    },
+    "dependencies": {
+        "extend": "^3.0.2"
+    }
 }
